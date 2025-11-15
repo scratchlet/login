@@ -1,0 +1,227 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratchlet - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://i.postimg.cc/Wbsrt82t/Scratchlet-Icon.png">
+    <style>
+        body {
+            font-family: "Nunito", sans-serif;
+            background: 
+                linear-gradient(rgba(210, 180, 140, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(210, 180, 140, 0.15) 1px, transparent 1px),
+                linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            background-size: 40px 40px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .login-container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            font-family: "Titan One", sans-serif;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.8em;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: "Nunito", sans-serif;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        input:focus {
+            border-color: #FFFFFF;
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .login-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #FF8C00;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: "Nunito", sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .login-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .register-link {
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .register-link a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-home {
+            margin-top: 20px;
+        }
+        
+        .back-home a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .bot-login {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .bot-login a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .bot-login a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Welcome Back!</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" required="" placeholder="Enter your username">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required="" placeholder="Enter your password">
+            </div>
+            
+            <button type="submit" class="login-button">LOGIN TO DASHBOARD</button>
+            
+            <div class="register-link">
+                New to Scratchlet? <a href="https://scratchlet-app.neocities.org/register">Create Account</a>
+            </div>
+            
+            <div class="bot-login">
+                <a href="https://scratchlet-app.neocities.org/bot-login">Bot Account Login</a>
+            </div>
+            
+            <div class="back-home">
+                <a href="https://scratchlet-app.neocities.org">← Back to Landing Page</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'scratchlet' && password === 'botpassword123') {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userRole', 'bot');
+                localStorage.setItem('username', 'scratchlet');
+                window.location.href = 'https://scratchlet-app.neocities.org/bot-panel';
+                return;
+            }
+            
+            const users = JSON.parse(localStorage.getItem('scratchletUsers') || '[]');
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userRole', user.role || 'user');
+                localStorage.setItem('username', user.username);
+                window.location.href = 'https://scratchlet-app.neocities.org/home';
+            } else {
+                alert('Invalid username or password!');
+            }
+        });
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+
+<script>
+  const firebaseConfig = { /* same config here */ };
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  document.getElementById("loginButton").addEventListener("click", async () => {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      alert("Logged in!");
+      window.location.href = "https://scratchlet-app.neocities.org/home";
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+</script>
+</body>
